@@ -43,6 +43,7 @@
 
 
 require_once("./class/auto.php");
+require_once("../ejer-18/garage.php");
 
 date_default_timezone_set("America/Argentina/Buenos_Aires");
 
@@ -50,14 +51,14 @@ $auto1 = new Auto("Suzuki","Azul");
 $auto2 = new Auto("Suzuki","Verde");    
 
 $auto3 = new Auto("Honda","Verde",45000);    
-$auto4 = new Auto("Honda","Verde",19900.99); 
+$auto4 = new Auto("BMW","Verde",19900.99); 
 
-$auto5 = new Auto("Honda","Verde",19900.99,date("d-m-y"));    
+$auto5 = new Auto("Wabe","Verde",19900.99,date("d-m-y"));    
 
 
 $garage = array($auto1,$auto2,$auto3,$auto4,$auto5);
 
-
+/*
 for ($i=0; $i < count($garage); $i++) { 
 
     if ($i == 0) {
@@ -85,11 +86,21 @@ for ($i=0; $i < count($garage); $i++) {
         echo "\n\n". Auto::mostrarAuto($garage[$i]);
         
     }
-    
+      
 
-    
+}  */
 
-}
+//TEst ejer-18
+
+$garage = new Garage("Doctored",599.9,array($auto1,$auto3,$auto5));
+
+
+$garage->remove($auto1);
+var_dump($garage->mostrarGarage());
+echo "<br> ----------------------------------------- <br>";
+
+$garage->add($auto4);
+var_dump($garage->mostrarGarage());
 
 
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css">
+    <title>Register user</title>
+</head>
+<body>
+
+    <section class="register">
+        <article class="container-register">
+
+            <form action="" method='POST' class="form-register">
+                <fieldset class="fieldset-register">
+                    <legend>Register</legend>
+
+                    <div class="container-input" role="contentinfo" >
+                        <label for="user">User</label>
+                        <input class="input-form" type="text" name="user" id="user">
+                    </div>
+
+                    <div class="container-input class="input-form"" role="contentinfo" >
+                        <label for="mail">Mail</label>
+                        <input class="input-form" type="mail" name="mail" id="mail">
+                    </div>
+
+                    <div class="container-input" role="contentinfo" >
+                        <label for="password">Password</label>
+                        <input class="input-form" type="password" name="password" id="password">
+                    </div>
+
+                    <div class="container-input" role="contentinfo" >
+                        <label for="repassword">Re Password</label>
+                        <input class="input-form" type="password" name="repassword" id="repassword">
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset-register">
+                    <label for="termCondition" class="lbTermCondition">Acepto los terminos y condiciones</label>
+                    <input type="checkbox" name="termCondition" id="termCondition">
+
+                </fieldset>
+
+                <div class="container-btn-register">
+                    <button type="submit" class="btn btn-register">Register</button>
+                    <button type="button" class="btn btn-cancel">Cancelar</button>
+                </div>
+            </form>
+
+
+        </article>
+    </section>  
+
+    <script src="./formValidate.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.register{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.form-register{
+    padding: 3rem 3rem 0rem 3rem;
+    border-radius: 1rem;
+    background-color: rgb(49, 46, 46);
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.fieldset-register{
+    padding: 1rem;
+    width: 20rem;
+
+
+}
+
+label{
+    color: aliceblue;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.container-btn-register{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    height: 7rem;
+}
+
+.btn{
+    height: 2.3rem;
+    width: 6rem;
+    color: white;
+    border: none;
+}
+
+.btn-register{
+    background-color: rgb(40, 83, 147);
+    cursor: pointer;
+}
+
+.btn-cancel{
+    background-color: rgb(110, 24, 24);
+    cursor: pointer;
+
+}
+
+legend{
+    color: rgb(209, 200, 200);
+    font-size: 1.4rem;
+}
+
+.container-input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem;
+}
+
+.lbTermCondition{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.input-form{
+    padding: 0.2rem;
+}
