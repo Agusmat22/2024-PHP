@@ -45,7 +45,7 @@
 
 
 */
-
+/*
 class Auto{
 
 
@@ -96,7 +96,7 @@ class Auto{
     }
 
 
-    /*GETTERS AND SETTERS */
+    //GETTERS AND SETTERS 
 
     public function getMarca()
     {
@@ -118,8 +118,8 @@ class Auto{
         return $this->_fecha;   
     }
 
-}
+}*/
 
-//
+
 
 
