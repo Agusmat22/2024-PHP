@@ -8,6 +8,7 @@ let check = window.document.querySelector('#termCondition');
 let form = window.document.querySelector(".form-register");
 
 let btnRegister = window.document.querySelector(".btn-register");
+let btncancel = window.document.querySelector(".btn-cancel");
 
 
 let colorError = 'red';
@@ -34,6 +35,11 @@ const validatePassword = (password,rePassword) =>{
 
     return password === rePassword;
 };
+
+
+btncancel.addEventListener('click',(event)=>{
+    window.location.href = './index.html';
+})
 
 
 user.addEventListener('input',(event)=>{
@@ -112,41 +118,20 @@ user.addEventListener('input',(event)=>{
 
 
 form.addEventListener('submit',(event)=>{
+   
     event.preventDefault();
-    
-    if (check.checked) {
-
-      let formData = {
-        user: user.value,
-        email: email.value,
-        password: password.value
-      }
-      
-      fetch('index.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-        })
-        .then(response => {
-            // Handle response
-            if (response.ok) {
-                return response.text();
-            } else {
-                throw new Error('Error occurred during form submission');
-            }
-        })
-        .then(data => {
-            // Handle data returned by PHP
-            console.log(data);
-        })
-        .catch(error => {
-            // Handle error
-            console.error('Error:', error);
-        });
-    }
-    
+    // Submit the form to the PHP file
+    var form = document.getElementsByClassName("form-register");
+    var formData = new FormData(form);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", form.action);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Redirect the user to another HTML page after successful submission
+            window.location.href = "redirection.html";
+        }
+    };
+    xhr.send(formData);
 })
 
 

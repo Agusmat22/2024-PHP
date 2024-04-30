@@ -2,32 +2,49 @@
 
 require_once(__DIR__."/gestorFile.php");
 
+//NO FUNCIONA ESTO
 
-$user;
-$password;
+
+$users;
+
+if (file_exists(__DIR__."/data/users.txt")) {
+
+    $users = GestorFile::readFileUsers(__DIR__."/data/users.txt");
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     
-    // Get the JSON data sent from JavaScript
-    $jsonData = file_get_contents('php://input');
+    if ($_POST['action'] === 'register') {
 
-    // Decode the JSON data into an associative array
-    $data = json_decode($jsonData, true);
-
-    // Access the data fields using keys
-    $username = $data['user'];
-    $password = $data['password'];
-    $email = $data['email'];
+        // Access the data fields using keys
+        $username = $_POST['user'];
+        $password = $_POST['password'];
+        $mail = $_POST['mail'];
 
 
-    // Process the data as needed
-    // For example, you can validate and sanitize the data, then perform database operations
+        // Process the data as needed
+        // For example, you can validate and sanitize the data, then perform database operations
 
-    if (isset($username) && isset($password) && isset($email)) {
-        
-        $mensaje = "$username | $password\n";
-        GestorFile::saveFileExist($mensaje,'./data/users.txt');
-        echo "Exitoso el registro";
+        if (isset($username) && isset($password) && isset($mail)) {
+            
+            $mensaje = "$username | $password | $mail".PHP_EOL;
+            GestorFile::saveFileExist($mensaje,'./data/users.txt');
+            echo "Exitoso el registro";
+        }
+
     }
+    else if ($_POST['action'] === "join") {
+        
+        if (isset($users)) {
+
+        }
+        else{
+            echo "Error, el usuario no es valido";
+
+        }
+    }
+
+
 
 } 

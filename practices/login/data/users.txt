@@ -1,2 +1,4 @@
-agustinaa | 123
-raulsito | 123
+Agus | 123 | agus@gmail.com
+Raul | 123 | raul@gmail.com
+Gimena | 123 | gime@gmail.com
+Luca | luca | luca@hotmail.com
