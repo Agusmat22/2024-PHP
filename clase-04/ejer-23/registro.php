@@ -29,7 +29,8 @@ if (isset($_GET['action'])) {
 
                 case 'register':
 
-                    if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['mail'])) {
+
+                    if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['mail']) && isset($_FILES['filePhoto'])) {
                         
                         require_once __DIR__ . '/class/user.php';
                         require_once __DIR__ . '/archivo.php';
@@ -40,13 +41,20 @@ if (isset($_GET['action'])) {
                             
                             $users = File::readUsers('/data/users.json'); 
                         }
+
+                        $newUser = new User($_POST['name'],$_POST['mail'] ,$_POST['password'],date('Y-m-d H:i:s'),count($users)) ;
                         
-                        $users[] = $newUser = new User($_POST['name'],$_POST['mail'] ,$_POST['password'],date('Y-m-d H:i:s'),count($users)) ;
-                        
+                        $users[] = $newUser;
+                        /*
                         if(File::saveFile(File::serializerUsers($users))){
 
                             echo "Registro exitoso";
-                        }
+                        }*/
+
+                        File::moveFileClient("/photos", "filePhoto",$newUser->getId());
+                    }
+                    else{
+                        echo "Error faltan parametros";
                     }
                     
                     break;
