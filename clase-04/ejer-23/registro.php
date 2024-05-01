@@ -2,6 +2,8 @@
 
 
 /*
+
+    ENTREGADO
     Aplicación No 23 (Registro JSON)
     Archivo: registro.php
     método:POST
@@ -45,13 +47,17 @@ if (isset($_GET['action'])) {
                         $newUser = new User($_POST['name'],$_POST['mail'] ,$_POST['password'],date('Y-m-d H:i:s'),count($users)) ;
                         
                         $users[] = $newUser;
-                        /*
+                        
                         if(File::saveFile(File::serializerUsers($users))){
 
                             echo "Registro exitoso";
-                        }*/
+                        }
 
+                        
                         File::moveFileClient("/photos", "filePhoto",$newUser->getId());
+
+                        //OBTENGO LA IMAGEN
+                        $namePhoto =  File::getPhoto(0,"/photos");
                     }
                     else{
                         echo "Error faltan parametros";
@@ -70,4 +76,6 @@ if (isset($_GET['action'])) {
             break;
     }
     
+}else{
+    echo "Error, parametro no admitido";
 }

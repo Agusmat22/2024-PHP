@@ -79,7 +79,11 @@ class File{
 
     public static function moveFileClient($path,$keyPhoto,$idUser){
 
-        if (str_contains($_FILES[$keyPhoto]["type"],"png") || str_contains($_FILES[$keyPhoto]["type"],"jpg")) {
+        $formatAllow = array("png","jpg","jpeg");
+
+        $pattern = "/(png|jpg|jpeg)/";
+
+        if (preg_match($pattern, $_FILES[$keyPhoto]["name"])) {
 
 
             $name = $_FILES[$keyPhoto]["name"];
@@ -109,30 +113,18 @@ class File{
 
     public static function getPhoto($idUser,$path){
 
-        /*
-            FORMA PARA LEER UNA CARPETA DE ARCHIVOS O FOTOS SIN NECESIDAD DE PONER UN NOMBRE ESPECIFICO
+        
+        //Metodo scandir scanea todos los archivos que se encuentren en ese directorio
+        $photoList = scandir(__DIR__.$path);
 
-
-            // Ruta de la carpeta que contiene las imágenes
-            $carpeta = 'ruta/a/tu/carpeta';
-
-            // Obtener una lista de archivos en la carpeta
-            $archivos = scandir($carpeta);
-
-            // Iterar sobre cada archivo
-            foreach ($archivos as $archivo) {
-                // Excluir los directorios . y ..
-                if ($archivo != '.' && $archivo != '..') {
-                    // Verificar si es un archivo de imagen (puedes añadir más extensiones si lo necesitas)
-                    $extensiones_permitidas = array('jpg', 'jpeg', 'png', 'gif');
-                    $extension = pathinfo($archivo, PATHINFO_EXTENSION);
-                    if (in_array(strtolower($extension), $extensiones_permitidas)) {
-                        // Mostrar la imagen o hacer lo que necesites con ella
-                        echo '<img src="' . $carpeta . '/' . $archivo . '" alt="' . $archivo . '"><br>';
-                    }
-                }
+        $idImg = "id=$idUser;";
+        
+        foreach ($photoList as $photo) {
+            
+            if (str_contains($photo,$idImg)) {
+                return $photo;
             }
-        */
+        }
 
     }
 }
